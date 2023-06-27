@@ -1,4 +1,51 @@
-#container
+body
 {
-    background-color: beige;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.header
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    background-color: blanchedalmond;
+    border: 1px solid burlywood;
+}
+
+.nav-items > ul
+{
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-items > ul > li 
+{
+    padding: 10px;
+}
+
+#logo
+{  
+    width: 80px;
+    mix-blend-mode: multiply;
+}
+
+.card 
+{
+    width: 200px;
+    background-color: wheat;
+    padding: 20px;
+    border: 1px solid burlywood;
+    margin-top: 5px;
+}
+
+.card > img 
+{
+    width: 100%;
+}
+
+.restaurant-list 
+{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }

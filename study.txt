@@ -1,3 +1,69 @@
+
+webpack(large-scale applications) : create react-app uses webpack, easy documentation
+vite:
+parcel(small projects and production projects): (all bundlers have all the functionalities below)
+
+features : 
+//Hot Module replacement
+//BUNDLING
+//MINIFY
+//NO CONSOLE LOGS - cleaning code
+//Dev abd production build
+//Super fast build algorithm
+//Image optimization
+//caching while development
+//compressing
+//compatible with older version of browser
+//also gives us functionality to develop application for https
+// it handles port numbers as well
+//consistent hashing algorithm
+// tree shaking : removing unwanted code(parcel ignores all the unused code)
+//zero configuration bundle - you dont need to configure parcel just need to gives
+//entry point
+
+
+PARCEL 
+---------------------------------------------------
+>>npm init or npm init -y
+------
+>>npm i -D parcel
+or
+>>npm install -D parcel
+*creates server and many other things mentioned below
+
+//Hot Module replacement
+//BUNDLING
+//MINIFY
+//NO CONSOLE LOGS - cleaning code
+//Dev abd production build
+//Super fast build algorithm
+//Image optimization
+//caching while development
+//compressing
+//compatible with older version of browser
+//also gives us functionality to develop application for https
+// it handles port numbers as well
+//consistent hashing algorithm
+// tree shaking : removing unwanted code(parcel ignores all the unused code)
+//zero configuration bundle - you dont need to configure parcel just need to gives
+//entry point
+
+>>npx parcel index.html
+//execute your application using parcel and providing entry point
+>>npx parcel build index.html
+//making your application production ready
+how to install react
+-----------------------------------------------------------
+>>npm install react
+>>npm install react-dom
+
+add module attribute to the script tag
+<script src="" type="module" ></script>
+
+import React from react;
+import ReactDOM from react-dom/client;
+---------------------------------------------------------------
+
 package lock : locks the version for you
 ~version “Approximately equivalent to version”, 
 will update you to all future patch versions,
@@ -9,8 +75,10 @@ will update you to all future minor/patch versions,
  without incrementing the major version. ^1.2.3 will use releases
   from 1.2.3 to <2.0.0.
 
-  never keep package-lock.json in gitignore
+  never keep package-lock.json in gitignore because it will be required 
+  on the server to auto generate all the packages
 
+----------------------------
    react has a thing called props which is 
 like attributes but configurable with our own made attributes
 
@@ -55,38 +123,243 @@ to be used on servers
 npx parcel index.html
 does this for us, to make our application production build using build cmd
 
-//Hot Module Reloading
-//BUNDLING
-//MINIFY
-//NO CONSOLE LOGS - cleaning code
-//Dev abd production build
-//Super fast build algorithm
-//Image optimization
-//caching while development
-//compressing
-//compatible with older version of browser
-//also gives us functionality to develop application for https
-// it handles port numbers as well
-//consistent hashing algorithm
-//zero configuration bundle - you dont need to configure parcel just need to gives
-entry point
-
+-------------
 *if react is narendra modi then parcel is amit shah
 
 parcel does image optimization as well
-
+-----------------
 +we should put parcel-cache in gitignore
 everything that can be auto-generated should be added to gitignore because
 it can be generated automcatically on the server using lock.json file
 
-
+------------------
 *parcel has transitive dependencies
 Transitive dependencies 
 our package manager which handles and takes care of transitive dependencies 
 in our project
-
+---------------
 dependency tree
 react , parcel (all the dependencies for making production ready application)
 these dependencies are called transitive dependencies
 
+--------------------
+poly-fill : code replacement for a newer version of a code
+some browsers dont support es6 code (usually old browsers)
+assume the browser doesnt know Array.map()
+then polyfill will create its own map function which does the same thing as Array.map()
 
+*babel* converts the new code to old code so that all kinds of browsers support our application
+babel does it automcatically if you specify the versions of the browsers
+
+babel is javascript package or library
+which reads our code and giving out some code
+takes newer code with modern functionalities and converts it into old javascript
+
+
+------------------------
+last 10 chrome versions means
+it will definitely work on last 10 versions and not just 10 versions of chrome
+or any other browser
+
+------------------------
+git init makes your app compatible with git
+
+----
+25/06/2023
+
+make a script to run our application
+
+npx means execute a package
+npm run is same as npx
+npm run build (to build your application)
+npm run start(to run your application) or npm start (its all same thing)
+
+
+console.logs are directly not removed.
+we need to configure in order to delete console
+using a package
+Babel will be used to remove console
+------------------------------------
+Babel plugin transform remove console.
+npm install babel-plugin-transform-remove-console --save-dev
+JSON
+// without options
+{
+  "plugins": ["transform-remove-console"]
+}
+
+JSON
+// with options
+{
+  "plugins": [["transform-remove-console", { "exclude": ["error", "warn"] }]]
+}
+-----------------------------------
+updating dom means rendering
+
+keys are important because it helps react to inject new elements(children)
+in a div or parent tag
+
+if key are not present then react will have to re render everything
+because it cannot uniquely identify which li is to be rendered and where
+inside a parent of ul
+
+<ul>
+  <li>first</li>
+  <li>second</li>
+</ul>
+
+<ul>
+  <li>first</li>
+  <li>second</li>
+  <li>third</li>
+</ul>
+
+
+<ul>
+  <li>Duke</li>
+  <li>Villanova</li>
+</ul>
+
+<ul>
+  <li>Connecticut</li>
+  <li>Duke</li>
+  <li>Villanova</li>
+</ul>
+
+react doesnt use id it uses the concept of key
+each key must be unique
+In order to solve this issue, React supports a key attribute. 
+When children have keys, React uses the key to match children
+ in the original tree with children in the subsequent tree. 
+ For example, adding a key to our inefficient example above can make 
+ the tree conversion efficient:
+
+<ul>
+  <li key="2015">Duke</li>
+  <li key="2016">Villanova</li>
+</ul>
+
+<ul>
+  <li key="2014">Connecticut</li>
+  <li key="2015">Duke</li>
+  <li key="2016">Villanova</li>
+</ul>
+
+-------------------------------
+
+react's philosophy : writing html using javascript in a better way
+what is jsx : 
+
+
+-----------------------
+old code
+ const heading = React.createElement("h1",
+{ 
+    id:"title",
+    key:"h1",
+},"Heading 1 for parcel");
+
+console.log(heading)
+ 
+//React.creatElement => object => HTML(DOM)
+const heading2 = React.createElement("h2",
+{ 
+    id:"title1",
+    key:"h2",
+},"Heading 2");
+
+
+    // JSX question : is jsx html inside js? No it is html-like syntax
+    // its a fancy way of writing html in js but its not html inside js
+const heading3 = (
+    <h1 id="title" key="h3">
+    Namaste 
+    </h1>
+    );
+
+
+const container = React.createElement(
+    "div",
+    {
+        id:"container"
+    },
+    [heading,heading2,heading3]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+//parsing a react element into the root
+
+//async defer
+root.render(container);
+---------------------------
+babel is a compiler or transpiler
+functional components => normal function that returns a components
+returns a piece of jsx
+
+when there are multiple lines we need () while defining a jsx code
+
+react element = object
+react elements should be used in curly braces
+
+jsx must have a single parent
+
+mix-blend-mode : multiply
+to make img background match with page background
+
+// React.Fragment is a component which is exported by react
+if we dont want to use another div we can use <React.Fragment></React.Fragment> as a parent
+multiple times to use multiple parents
+
+React.Fragment is like an empty tag
+can also be written as <></>
+
+//inline styling in react
+/* const styleObj = 
+{
+    backgroundColor:"Red",
+}
+const jsx = 
+(
+    <div style={styleObj}>
+        Hello World
+    </div>
+); */
+
+------------------------
+config driven ui 
+const config = 
+[
+    {
+        type:"carousel",
+        cards:
+        [
+            {
+                offerName: "50% off"
+            },
+            {
+                offerName: "No Delivery Charge"
+            }
+        ],
+    },
+]
+const burgerKing = 
+{
+    name: "Burger King",
+    image: "https://www.in-n-out.com/ResourcePackages/INNOUT/content/images/menu/double-double-meal.png?package=INNOUT&v=2023",
+    cuisines: ["Burger", "American"],
+    rating: "4.2"
+}
+
+-----------------------
+//optional chaining
+
+// difference between argument and parameters
+
+function explainParams(param1, param2)
+{
+
+}
+
+
+explainParams(args1,args2);
+
+difference between map and for each
