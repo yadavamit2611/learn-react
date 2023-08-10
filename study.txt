@@ -363,3 +363,12 @@ function explainParams(param1, param2)
 explainParams(args1,args2);
 
 difference between map and for each
+
+react uses reconciliation diff algorithm to render only the diff which requires the changes
+and does not render the whole dom for it, using key
+it keeps a virtual dom copy of the actual dom
+--------------
+
+react fiber
+react 16 div algo changed - react fiber
+new reconciliation engine
