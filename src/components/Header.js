@@ -1,13 +1,19 @@
-import { logoUrl } from "../Config";
+import { useEffect, useState } from "react";
+import { logoUrl } from "../constants";
 
 const Title = () => // functional component
 (
     <a href="/">
     <img id="logo" alt="foodvilla" src={logoUrl}></img>
     </a>
-);
+)
 const Header = () => 
 {
+    const [isloggedIn, setIsLoggedIn] = useState(false);
+    console.log("render");
+    useEffect(() => {
+        console.log("use effect")
+    }, [isloggedIn]);
     return (
         <div className="header">
             {
@@ -20,13 +26,17 @@ const Header = () =>
                 // react is a library gives you lot of things
                 // no restrictions its very flexible
             }
-            <Title />
+            <Title/>
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
+                    <li><i className="fa fa-home"></i>Home</li>
+                    <li><i className="fa fa-info"></i>About</li>
+                    <li><i className="fa fa-envelope"></i>Contact</li>
+                    {
+                        // only Js expression and statement
+                        isloggedIn ? <button className="common" onClick={() => setIsLoggedIn(false)}><i className="fa fa-user"></i>Logout</button> 
+                        : <button className="common" onClick={() => setIsLoggedIn(true)}><i className="fa fa-user"></i>Login</button>
+                    }                    
                 </ul>
             </div>
         </div>

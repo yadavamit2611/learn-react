@@ -24,12 +24,14 @@
   "devDependencies": {
     "@babel/core": "^7.22.5",
     "babel-plugin-transform-remove-console": "^6.9.4",
+    "font-awesome": "^4.7.0",
     "parcel": "^2.9.2",
     "process": "^0.11.10"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-shimmer": "^3.2.0"
   },
   "browserslist": [
     "last 2 versions"

@@ -1,13 +1,45 @@
 body
 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
 }
+
+.search-bar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-top: 5px;
+    height: 4%;
+    width: 100%;
+}
+
+.search-input{
+    width: 50%;
+    justify-content: center;
+    background-color: antiquewhite;
+    border: 1px solid burlywood;
+}
+
+.common {
+    border : 0px;
+    background-color: blanchedalmond;
+    margin-right: 5px;
+    font-size: 15px;;
+}
+
+.searchBtn{
+    background-color: tomato;
+    border: tomato;
+    font-size: 15px;
+    margin-left: 1%;
+    border-radius: 5px;
+}
+
 
 .header
 {
     display: flex;
     justify-content: space-between;
-    margin: 10px;
     background-color: blanchedalmond;
     border: 1px solid burlywood;
 }
@@ -33,7 +65,7 @@ body
 {
     width: 200px;
     background-color: wheat;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid burlywood;
     margin-top: 5px;
 }
@@ -41,6 +73,7 @@ body
 .card > img 
 {
     width: 100%;
+    display: flex;
 }
 
 .restaurant-list 
@@ -48,4 +81,27 @@ body
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.footer{
+    margin-top: 5px;
+    background-color: blanchedalmond;
+    border: 1px solid burlywood;
+}
+
+.footerText{
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons > a{
+    margin-left: 10px;
 }

@@ -10,9 +10,14 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
+import 'font-awesome/css/font-awesome.min.css';
 // Composing components
 
 // config driven ui
+//any config can power the ui - json file
+//could be stored in a backend
+//swiggy - api call returns a config json which contains ui content
+
 
 const AppLayout = () => 
 {
@@ -20,8 +25,8 @@ const AppLayout = () =>
         //react fragments
         <> 
         <Header />
-        <Body />
-        <Footer />
+        {/* <Body />
+        <Footer /> */}
         </>
     );
 };
