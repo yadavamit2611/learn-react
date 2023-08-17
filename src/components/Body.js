@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import RestrauntCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 
-let restaurantList = [];
 //hook is just a function
 //what is state
 //what is hook
@@ -86,7 +85,8 @@ const Body = () =>
 
 
      return allRestaurants?.length===0 ? 
-     <Shimmer/> : (
+     <Shimmer/> :
+     (
             <>
             <div className="search-bar">
                 <input type="text" className="search-input" placeholder="Search Food,Restaurant,location.." value={searchText} onChange={(e) => {setSearchText(e.target.value)}}></input>

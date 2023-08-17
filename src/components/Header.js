@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { logoUrl } from "../constants";
+import { Link } from "react-router-dom";
 
 const Title = () => // functional component
 (
@@ -29,9 +30,10 @@ const Header = () =>
             <Title/>
             <div className="nav-items">
                 <ul>
-                    <li><i className="fa fa-home"></i>Home</li>
-                    <li><i className="fa fa-info"></i>About</li>
-                    <li><i className="fa fa-envelope"></i>Contact</li>
+                    <li><i className="fa fa-home"></i><Link to="/">Home</Link></li>
+                    <li><i className="fa fa-info"></i><Link to="/about">About</Link></li>
+                    <li><i className="fa fa-envelope"></i><Link to="/contact">Contact</Link></li>
+                    <li><i className="fa fa-cart-shopping"></i><Link to="/cart">Cart</Link></li>
                     {
                         // only Js expression and statement
                         isloggedIn ? <button className="common" onClick={() => setIsLoggedIn(false)}><i className="fa fa-user"></i>Logout</button> 

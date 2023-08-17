@@ -8,7 +8,7 @@ const RestrauntCard = ({brand,rating,cuisine,location}) =>
             <h2>{brand.name}</h2>
             <h3>{rating.score} stars | {rating.votes} votes</h3>
             <h5>{location?.streetAddress} {location?.city} {location?.country} </h5>
-        </div>
+            </div>
     );
 }
 export default RestrauntCard;

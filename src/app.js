@@ -10,6 +10,12 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
+import About from "./components/About";
+import Error from "./components/Error";
+import Contact from "./components/Contact";
+import Cart from "./components/Cart";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+//function we get from react router dom - will help us create routing
 import 'font-awesome/css/font-awesome.min.css';
 // Composing components
 
@@ -18,19 +24,45 @@ import 'font-awesome/css/font-awesome.min.css';
 //could be stored in a backend
 //swiggy - api call returns a config json which contains ui content
 
-
 const AppLayout = () => 
 {
     return (
         //react fragments
         <> 
         <Header />
-        {/* <Body />
-        <Footer /> */}
+        {/* outlet will be filled by children */}
+        <Outlet />
+        <Footer />
         </>
     );
 };
 
+const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <AppLayout />,
+        errorElement: <Error />,
+        children: [{
+            path: "/",
+            element: <Body />
+        },
+        {
+            path: "/about",
+            element: <About />
+        },
+        {
+            path: "/contact",
+            element: <Contact />
+        },
+        {
+            path: "/cart",
+            element: <Cart />
+        }
+        ]
+    }
+
+])
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />); // self closing tag
+root.render(<RouterProvider router={appRouter}/>); // self closing tag
 
