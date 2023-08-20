@@ -29,10 +29,12 @@
     "process": "^0.11.10"
   },
   "dependencies": {
+    "formik": "^2.4.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
-    "react-shimmer": "^3.2.0"
+    "react-shimmer": "^3.2.0",
+    "yup": "^1.2.0"
   },
   "browserslist": [
     "last 2 versions"

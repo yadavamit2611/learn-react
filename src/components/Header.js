@@ -13,7 +13,8 @@ const Header = () =>
     const [isloggedIn, setIsLoggedIn] = useState(false);
     console.log("render");
     useEffect(() => {
-        console.log("use effect")
+        console.log("use effect");
+        sessionStorage.setItem("state",setIsLoggedIn(isloggedIn));
     }, [isloggedIn]);
     return (
         <div className="header">
@@ -33,11 +34,11 @@ const Header = () =>
                     <li><i className="fa fa-home"></i><Link to="/">Home</Link></li>
                     <li><i className="fa fa-info"></i><Link to="/about">About</Link></li>
                     <li><i className="fa fa-envelope"></i><Link to="/contact">Contact</Link></li>
-                    <li><i className="fa fa-cart-shopping"></i><Link to="/cart">Cart</Link></li>
+                    {/* <li><i className="fa fa-cart-shopping"></i><Link to="/cart">Cart</Link></li> */}
                     {
                         // only Js expression and statement
-                        isloggedIn ? <button className="common" onClick={() => setIsLoggedIn(false)}><i className="fa fa-user"></i>Logout</button> 
-                        : <button className="common" onClick={() => setIsLoggedIn(true)}><i className="fa fa-user"></i>Login</button>
+                        isloggedIn ? <li onClick={() => setIsLoggedIn(false)}><i className="fa fa-user"></i><Link to="/">Log Out</Link></li>
+                        : <li onClick={() => setIsLoggedIn(true)}><i className="fa fa-user"></i><Link to="/login">Log In</Link></li>
                     }                    
                 </ul>
             </div>

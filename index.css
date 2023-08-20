@@ -1,7 +1,9 @@
 body
 {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white;
+    background-color: #2d3748;
+    color: white;
+    overflow: hidden;
 }
 
 .search-bar{
@@ -10,15 +12,76 @@ body
     justify-content: left;
     margin-top: 5px;
     width: 100%;
-    height: 30px;
+    height: 40px;
 }
 
 .search-input{
     width: 50%;
+    font-size: 18px;
     justify-content: center;
-    background-color: antiquewhite;
+    background-color: white;
     border: 1px solid burlywood;
 }
+
+  
+.login-input {
+    padding: .5rem;
+    margin-top: 10px;
+    font-size: 16px;
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  .login-form{
+    background-color: #4a5568;
+    padding: 10px;
+    height: 82%;
+    color: white;
+  }
+  
+  .login-input:focus {
+    border-color: #007eff;
+    box-shadow: inset 0 1px 1px rgba(120, 95, 95, 0.075),
+      0 0 0 3px rgba(0, 126, 255, 0.1);
+    outline: none;
+  }
+  
+  .login-input.error {
+    border-color: rgb(254, 58, 58);
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: .5rem;
+  }
+  
+  .login-input-feedback {
+    color:  rgb(254, 58, 58);
+    margin-top: .25rem;
+  }
+
+  .login-button {
+    max-width: 150px;
+    margin: 20px 0;
+    padding: 12px 20px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #08c;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    font-size: 17px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .login-button:disabled {
+    opacity: .5;
+    cursor: not-allowed !important;
+  }
 
 a{
   color: black; 
@@ -34,7 +97,7 @@ a{
 
 .searchBtn{
     background-color: tomato;
-    border: 2px solid antiquewhite;
+    border: antiquewhite;
     color: white;
     text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */   
     font-size: 15px;
@@ -46,7 +109,8 @@ a{
 {
     display: flex;
     justify-content: space-between;
-    background-color: blanchedalmond;
+    background-color: white;
+    color: black;
     border: 1px solid burlywood;
 }
 
@@ -70,8 +134,9 @@ a{
 .card 
 {
     width: 200px;
-    background-color: wheat;
-    padding: 10px;
+    height: 300px;
+    background-color: white;
+    padding: 5px;
     border: 1px solid burlywood;
     margin-top: 5px;
 }
@@ -87,15 +152,46 @@ a{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: 5px;
+    height: 78%;
+    overflow-y: auto;
+  /* Foreground, Background */
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.menu-list 
+{
+    display: flex;
+    margin-top: 5px;
+    height: 85%;
+    overflow-y: auto;
+}
 .shimmer-card
 {
     position: relative;
     -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 6px;
-    height: 200px;
+    height: 300px;
+    padding: 10px;
     overflow: hidden;
     width: 200px;
     margin: 10px auto;
@@ -132,12 +228,13 @@ a{
 
 .footer{
     margin-top: 5px;
-    background-color: blanchedalmond;
+    background-color: white;
     border: 1px solid burlywood;
 }
 
 .footerText{
     font-size: 15px;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;

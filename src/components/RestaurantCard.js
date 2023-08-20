@@ -1,6 +1,5 @@
 const RestrauntCard = ({brand,rating,cuisine,location}) => 
 {
-
 //    const {name, cuisines, image, rating} = restraunt;
     return ( 
             <div className="card">
