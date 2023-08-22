@@ -16,6 +16,7 @@ import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import RestrauntMenu from "./components/RestrauntMenu";
 import Login from "./components/Login";
+import Profile from "./components/Profile";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 //function we get from react router dom - will help us create routing
 import 'font-awesome/css/font-awesome.min.css';
@@ -50,7 +51,14 @@ const appRouter = createBrowserRouter([
         },
         {
             path: "/about",
-            element: <About />
+            element: <About />,
+            children: 
+            [
+                {
+                    path: "profile",
+                    element: <Profile name={"Amit"} />
+                }
+            ]
         },
         {
             path: "/contact",

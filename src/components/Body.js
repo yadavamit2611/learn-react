@@ -32,7 +32,7 @@ const Body = () =>
 // dep array [searchText] => once after initial render + everytime after render my searchtext changes
     async function getRestaurants(){
         try {
-            const data = await fetch("https://cw-api.takeaway.com/api/v33/restaurants?deliveryAreaId=1216851&postalCode=66111&lat=49.24106&lng=6.991020000000001&limit=0&isAccurate=true&filterShowTestRestaurants=false", {
+            const data = await fetch("https://cw-api.takeaway.com/api/v33/restaurants?deliveryAreaId=1205672&postalCode=10178&lat=52.52000659999999&lng=13.404954&limit=0&isAccurate=true&filterShowTestRestaurants=false", {
                 "headers": {
                   "accept": "application/json, text/plain, */*",
                   "accept-language": "en",

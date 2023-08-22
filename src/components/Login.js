@@ -10,12 +10,11 @@ const Login = () => {
             const errors = {};
             if(!values.email){
                 errors.email = 'Required';
-            }else if (
-                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-              ) {
+            }
+            else if 
+            ( !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
                 errors.email = 'Invalid email address';
               }
-
               if(!values.password){
                 errors.password = 'Required';
               }
@@ -31,38 +30,29 @@ const Login = () => {
             },400);
         }}  
         >
-{({
-         values,
-         errors,
-         touched,
-         handleChange,
-         handleBlur,
-         handleSubmit,
-         isSubmitting,
-         /* and other goodies */
-       }) => (
-         <form onSubmit={handleSubmit}>
+{ formik => (
+         <form onSubmit={formik.handleSubmit}>
            <input
+             id="email"
              type="email"
              name="email"
              placeholder="johndoe@gmail.com"
              className="login-input"
-             onChange={handleChange}
-             onBlur={handleBlur}
-             value={values.email}
+            {...formik.getFieldProps('email')}
            />
-           <div className="login-input-feedback">{errors.email && touched.email && errors.email}</div>
+           {formik.touched.email && formik.errors.email ? (
+             <div className="error">{formik.errors.email}</div> ) : null }
            <input
+             id="password"
              type="password"
              name="password"
              placeholder="Enter Password"
              className="login-input"
-             onChange={handleChange}
-             onBlur={handleBlur}
-             value={values.password}
+            {...formik.getFieldProps('password')}
            />
-           <div className="login-input-feedback">{errors.password && touched.password && errors.password && errors.password}</div>
-           <button className="login-button" type="submit" disabled={isSubmitting}>
+            {formik.touched.password && formik.errors.password ? (
+             <div className="error">{formik.errors.password}</div> ) : null }
+          <button className="login-button" type="submit" disabled={formik.isSubmitting}>
              Submit
            </button>
          </form>
