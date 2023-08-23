@@ -27,10 +27,10 @@ class About extends React.Component{
     this.setState({
       profileData : jsonData
     });
-    this.timer = setInterval(() => {
+/*     this.timer = setInterval(() => {
       console.log("start interval");
     },1000);
-    console.log("component did mount");
+    console.log("component did mount"); */
   }
 
   componentDidUpdate(){
@@ -38,8 +38,8 @@ class About extends React.Component{
   }
 
   componentWillUnmount(){
-    console.log("component will unmount");
-    clearInterval(this.timer);
+/*     console.log("component will unmount");
+    clearInterval(this.timer); */
   }
 
   render(){

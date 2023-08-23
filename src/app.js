@@ -5,7 +5,7 @@
 // restraunt card - image, name, Rating, Cuisines,  price, address * many
 //footer
 // links, copyrights
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -17,11 +17,12 @@ import Cart from "./components/Cart";
 import RestrauntMenu from "./components/RestrauntMenu";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
+import Shimmer from "./components/Shimmer";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 //function we get from react router dom - will help us create routing
 import 'font-awesome/css/font-awesome.min.css';
 // Composing components
-
+const Instamart = lazy(() => import("./components/Instamart"));
 // config driven ui
 //any config can power the ui - json file
 //could be stored in a backend
@@ -75,6 +76,10 @@ const appRouter = createBrowserRouter([
         {
             path: "/restaurant/:resId",
             element: <RestrauntMenu />,
+        },
+        {
+            path: "/instamart",
+            element: <Suspense fallback={<Shimmer />}><Instamart /></Suspense>
         }
         ]
     }

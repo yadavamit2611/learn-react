@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { logoUrl } from "../constants";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 const Title = () => // functional component
 (
@@ -10,10 +11,7 @@ const Title = () => // functional component
 )
 const Header = () => 
 {
-    const [isloggedIn, setIsLoggedIn] = useState(false);
-    useEffect(() => {
-        sessionStorage.setItem("state",setIsLoggedIn(isloggedIn));
-    }, [isloggedIn]);
+    const isOnline = useOnline();
     return (
         <section className="header">
             {
@@ -34,12 +32,9 @@ const Header = () =>
                     <li><i className="fa fa-home"></i><Link to="/">Home</Link></li>
                     <li><i className="fa fa-info"></i><Link to="/about">About</Link></li>
                     <li><i className="fa fa-envelope"></i><Link to="/contact">Contact</Link></li>
+                    <li><i className="fa fa-car"></i><Link to="/instamart">Instamart</Link></li>
                     {/* <li><i className="fa fa-cart-shopping"></i><Link to="/cart">Cart</Link></li> */}
-                    {
-                        // only Js expression and statement
-                        isloggedIn ? <li onClick={() => setIsLoggedIn(false)}><i className="fa fa-user"></i><Link to="/">Log Out</Link></li>
-                        : <li onClick={() => setIsLoggedIn(true)}><i className="fa fa-user"></i><Link to="/login">Log In</Link></li>
-                    }                    
+                    <li>{isOnline ? '🟢' : '🟥'}<i className="fa fa-user"></i><Link to="/login">Log In</Link></li>                 
                 </ul>
             </div>
         </section>
