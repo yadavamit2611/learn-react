@@ -1,4 +1,12 @@
 export const logoUrl = "https://img.freepik.com/premium-vector/restaurant-logo-design-template_79169-56.jpg?w=740";
+export const cities = ["Saarbrücken","Berlin","Schmalkalden","konstanze"];
+export const HEADER = {
+    "headers": {
+      "accept-language": "en",
+      "x-country-code": "de",
+    }
+  };
+export const FETCH_MENU_URL = "https://cw-api.takeaway.com/api/v33/restaurant?slug=";
 export const restaurantList = [
     {
         name: "Burger King",

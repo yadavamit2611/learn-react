@@ -3,16 +3,17 @@ body
     font-family: Arial, Helvetica, sans-serif;
     background-color: #2d3748;
     color: white;
-    overflow: hidden;
+    height: inherit;
 }
 
 .search-bar{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: left;
     margin-top: 5px;
     width: 100%;
-    height: 3vh;
+    height: 4vh;
+    gap: 5px;
 }
 
 .search-input{
@@ -23,7 +24,14 @@ body
     border: 1px solid burlywood;
 }
 
-  
+.location-input{
+  width: 20vw;
+  font-size: 15px;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid burlywood;
+}
+
 .login-input {
     padding: .5rem;
     margin-top: 10px;
@@ -37,7 +45,7 @@ body
   .login-form{
     background-color: #4a5568;
     padding: 10px;
-    height: 83vh;
+    height: inherit;
     color: white;
   }
   
@@ -103,7 +111,6 @@ a{
     color: white;
     text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */   
     font-size: 15px;
-    margin-left: 1%;
     border-radius: 5px;
 }
 
@@ -114,6 +121,7 @@ a{
     background-color: white;
     color: black;
     border: 1px solid burlywood;
+    height: inherit;
 }
 
 .nav-items > ul
@@ -129,7 +137,7 @@ a{
 
 #logo
 {  
-    width: 80px;
+    width: 65px;
     mix-blend-mode: multiply;
 }
 
@@ -152,10 +160,9 @@ a{
 .restaurant-list 
 {
     display: flex;
-    justify-content: space-between;
+    gap: 28px;
     flex-wrap: wrap;
-    margin-top: 5px;
-    height: 80vh;
+    height: inherit;
     overflow-y: auto;
   /* Foreground, Background */
 }
@@ -184,7 +191,8 @@ a{
 {
     display: flex;
     margin-top: 5px;
-    height: 83vh;
+    height: inherit;
+    padding: 10px;
     overflow-y: auto;
 }
 .shimmer-card
@@ -232,14 +240,15 @@ a{
     margin-top: 5px;
     background-color: white;
     border: 1px solid burlywood;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footerText{
     font-size: 15px;
     color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .icons{
@@ -250,4 +259,44 @@ a{
 
 .icons > a{
     margin-left: 10px;
+}
+
+.profile-photo{
+  vertical-align: middle;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  border: 5px solid white;
+}
+
+.profile-card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: fit-content;
+  background-color: #4a5568;
+  padding: 10px;
+  text-align: center;
+  color: black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profile-details{
+  background-color: rgb(253, 227, 192);
+  height: fit-content;
+  font-size: 11px;
+  width: 200px;
+  border: 5px solid white;
+  border-radius: 10px;
+}
+
+.about-elements {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.about-us-body{
+  height: inherit;
 }

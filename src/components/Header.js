@@ -11,13 +11,11 @@ const Title = () => // functional component
 const Header = () => 
 {
     const [isloggedIn, setIsLoggedIn] = useState(false);
-    console.log("render");
     useEffect(() => {
-        console.log("use effect");
         sessionStorage.setItem("state",setIsLoggedIn(isloggedIn));
     }, [isloggedIn]);
     return (
-        <div className="header">
+        <section className="header">
             {
                 // {title} if javascript to be used
                 // <Title /> if element is to be used
@@ -28,7 +26,9 @@ const Header = () =>
                 // react is a library gives you lot of things
                 // no restrictions its very flexible
             }
-            <Title/>
+            <div>
+                <Title/>
+            </div>
             <div className="nav-items">
                 <ul>
                     <li><i className="fa fa-home"></i><Link to="/">Home</Link></li>
@@ -42,7 +42,7 @@ const Header = () =>
                     }                    
                 </ul>
             </div>
-        </div>
+        </section>
     );
 };
 export default Header;
