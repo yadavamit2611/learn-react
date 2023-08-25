@@ -27,7 +27,6 @@ const Body = () =>
         try {
             const data = await fetch("https://api.geoapify.com/v1/geocode/search?text="+locationText+"&apiKey=f16359af8a6f405295f7083f4dda872c");
             const jsonData = await data.json();
-            console.log(jsonData.features[0]);
             const locationData = jsonData?.features[0]?.properties;
             getRestaurants(locationData);            
         } catch (error) {
@@ -60,7 +59,8 @@ const Body = () =>
     
             }));
             setAllRestaurants(restaurantArray);
-            setFilteredRestaurants(restaurantArray);    
+            setFilteredRestaurants(restaurantArray); 
+            console.log(restaurantArray);   
             setStatus(false);        
         } catch (error) {
             console.log(error);
@@ -76,25 +76,26 @@ const Body = () =>
      return allRestaurants?.length===0 ? 
      <Shimmer/> :
      (
-            <>
-            <div className="search-bar">
-                <input type="text" className="search-input" placeholder="Search Restaurant.." value={searchText} onChange={(e) => {
+            <div className="flex flex-col 
+            items-center justify-center bg-slate-600">
+            <div className="p-10 bg-slate-800 rounded-lg m-5 shadow-lg">
+                <input type="text" className="text-lg focus:outline-green-500 p-1 m-1 shadow-lg" placeholder="Search Restaurant.." value={searchText} onChange={(e) => {
                         setSearchText(e.target.value);
                         if(e.target.value.length>0){
                             const data = filterData(searchText,allRestaurants);
                             setFilteredRestaurants(data); 
                         }else{
                             setFilteredRestaurants(allRestaurants);
-                        }               
+                        }                
                     }}>    
                 </input>
-                <input type="text" className="location-input" placeholder="Search via location.." value={locationText} onChange={(e) => setLocationText(e.target.value)}></input>
-                <button className="searchBtn" onClick={() => {
+                <input type="text" className="text-lg p-1 m-1 focus:outline-green-500 shadow-md" placeholder="Search via location.." value={locationText} onChange={(e) => setLocationText(e.target.value)}></input>
+                <button className="p-2 mx-1 bg-green-700 hover:bg-green-800 text-white rounded-md shadow-md" onClick={() => {
                     setBtnClicked(btnClicked + 1);
                     setStatus(true);
                 }}>{status?"loading":"Change location"}</button>
             </div>
-            <div className="restaurant-list">
+            <div className="w-6/12 shadow-2xl bg-slate-500 rounded-lg my-5">
                 {
                     filteredRestaurants?.length === 0 ? <h1>404 error : No Restaurant found</h1> :  filteredRestaurants?.map((restaurant)=>
                     { 
@@ -104,7 +105,7 @@ const Body = () =>
                     }) 
                 }
             </div>
-            </>
+            </div>
         )
 };
 export default Body;

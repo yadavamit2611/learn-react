@@ -6,14 +6,14 @@ import useOnline from "../utils/useOnline";
 const Title = () => // functional component
 (
     <a href="/">
-    <img id="logo" alt="foodvilla" src={logoUrl}></img>
+    <img className="h-28 p-2 sm:flex-shrink-0 mix-blend-multiply" alt="foodvilla" src={logoUrl}></img>
     </a>
 )
 const Header = () => 
 {
     const isOnline = useOnline();
     return (
-        <section className="header">
+        <div className="flex justify-between sm:w-screen sm:bg-pink-50">
             {
                 // {title} if javascript to be used
                 // <Title /> if element is to be used
@@ -28,16 +28,16 @@ const Header = () =>
                 <Title/>
             </div>
             <div className="nav-items">
-                <ul>
-                    <li><i className="fa fa-home"></i><Link to="/">Home</Link></li>
-                    <li><i className="fa fa-info"></i><Link to="/about">About</Link></li>
-                    <li><i className="fa fa-envelope"></i><Link to="/contact">Contact</Link></li>
-                    <li><i className="fa fa-car"></i><Link to="/instamart">Instamart</Link></li>
+                <ul className="flex m-10 gap-1">
+                    <li><i className="fa fa-home px-2"></i><Link to="/">Home</Link></li>
+                    <li><i className="fa fa-info px-2"></i><Link to="/about">About</Link></li>
+                    <li><i className="fa fa-envelope px-2"></i><Link to="/contact">Contact</Link></li>
+                    <li><i className="fa fa-car px-2"></i><Link to="/instamart">Instamart</Link></li>
                     {/* <li><i className="fa fa-cart-shopping"></i><Link to="/cart">Cart</Link></li> */}
                     <li>{isOnline ? '🟢' : '🟥'}<i className="fa fa-user"></i><Link to="/login">Log In</Link></li>                 
                 </ul>
             </div>
-        </section>
+        </div>
     );
 };
 export default Header;
