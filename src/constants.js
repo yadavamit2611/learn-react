@@ -2,10 +2,21 @@ export const logoUrl = "https://img.freepik.com/premium-vector/restaurant-logo-d
 export const cities = ["Saarbrücken","Berlin","Schmalkalden","konstanze"];
 export const HEADER = {
     "headers": {
-      "accept-language": "en",
-      "x-country-code": "de",
-    }
+        "accept": "application/json, text/plain, */*",
+        "accept-language": "en",
+        "sec-ch-ua": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site",
+        "x-country-code": "de",
+        "x-language-code": "en",
+        "x-requested-with": "XMLHttpRequest",
+        "x-session-id": "1ab4962f-6fea-4e5d-ac5c-e6e2e3cd55ee"
+      }
   };
+
 export const FETCH_MENU_URL = "https://cw-api.takeaway.com/api/v33/restaurant?slug=";
 export const restaurantList = [
     {

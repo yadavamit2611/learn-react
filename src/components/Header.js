@@ -13,7 +13,7 @@ const Header = () =>
 {
     const isOnline = useOnline();
     return (
-        <div className="flex justify-between sm:w-screen sm:bg-pink-50">
+        <div className="flex justify-between">
             {
                 // {title} if javascript to be used
                 // <Title /> if element is to be used

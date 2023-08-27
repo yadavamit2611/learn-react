@@ -46,18 +46,20 @@ class About extends React.Component{
     const {name,location,avatar_url,bio} = this.state.profileData;
     console.log("render");
     return (
-      <div className="about-us-body">
-        <h1>About Us</h1>
-        <div className="about-elements">
-            <div className="profile-card">
-              <img className="profile-photo" src={avatar_url}></img>
-              <div className="profile-details">
+      <div className="bg-slate-600 h-5/6">
+        {/* <h1 className="text-white text-center text-4xl font-bold">About Us</h1> */}
+      <div className="flex flex-col justify-center items-center">
+      <div className="bg-slate-800 text-white text w-6/12 p-5 rounded-b-2xl">
+            <div className="flex flex-row justify-center items-center">
+              <img className="rounded-full h-28 border-2" src={avatar_url}></img>
+              <div className="bg-white text-black mx-2 p-4 rounded-lg">
                   <h2>Name :  {name} </h2>
                   <h2>Location :  {location} </h2>
+                  <h2 className="font-serif text-green-800">"{bio}"</h2>
               </div>
             </div>
-            <div><h2 style={{fontStyle:"italic",color:"white"}}> "{bio}"</h2></div>
          </div>
+      </div>
       </div>
     )    
   }

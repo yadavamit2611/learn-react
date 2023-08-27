@@ -97,7 +97,7 @@ const Body = () =>
             </div>
             <div className="w-6/12 shadow-2xl bg-slate-500 rounded-lg my-5">
                 {
-                    filteredRestaurants?.length === 0 ? <h1>404 error : No Restaurant found</h1> :  filteredRestaurants?.map((restaurant)=>
+                    filteredRestaurants?.length === 0 ? <h1 className="text-2xl p-10 text-white">404 error : No Restaurant found</h1> :  filteredRestaurants?.map((restaurant)=>
                     { 
                         return (<Link key={restaurant?.primarySlug} to={"/restaurant/"+restaurant?.primarySlug}>
                             <RestrauntCard {...restaurant} key={restaurant?.id}/>
