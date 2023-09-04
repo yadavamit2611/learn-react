@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import React from "react";
+import UserContext from "../utils/UserContext";
 const AboutTo = () => {
   return (
     <div>
@@ -50,19 +51,21 @@ class About extends React.Component{
         {/* <h1 className="text-white text-center text-4xl font-bold">About Us</h1> */}
       <div className="flex flex-col justify-center items-center">
       <div className="bg-slate-800 text-white text w-6/12 p-5 rounded-b-2xl">
-            <div className="flex flex-row justify-center items-center">
+            <div className="flex flex-col justify-center items-center sm:flex sm:flex-row">
               <img className="rounded-full h-28 border-2" src={avatar_url}></img>
-              <div className="bg-white text-black mx-2 p-4 rounded-lg">
+              <div className="bg-white text-black m-2 p-4 rounded-lg">
                   <h2>Name :  {name} </h2>
                   <h2>Location :  {location} </h2>
                   <h2 className="font-serif text-green-800">"{bio}"</h2>
               </div>
             </div>
          </div>
+         <UserContext.Consumer>{({user}) => <span>name {user.name} email {user.email}</span>}</UserContext.Consumer>
       </div>
       </div>
     )    
   }
 }
+
 
 export default About;

@@ -5,7 +5,7 @@
 // restraunt card - image, name, Rating, Cuisines,  price, address * many
 //footer
 // links, copyrights
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -18,9 +18,12 @@ import RestrauntMenu from "./components/RestrauntMenu";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/UserContext";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Provider } from "react-redux";
 //function we get from react router dom - will help us create routing
 import 'font-awesome/css/font-awesome.min.css';
+import store from "./utils/store";
 // Composing components
 const Instamart = lazy(() => import("./components/Instamart"));
 // config driven ui
@@ -30,14 +33,20 @@ const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => 
 {
+    const [user, setUser] = useState({name:"Amit",email:"thisisamit.kumar21@gmail.com"});
+    
     return (
         //react fragments
-        <> 
-        <Header />
-        {/* outlet will be filled by children */}
-        <Outlet />
-        <Footer />
-        </>
+        <Provider store={store}>
+            <UserContext.Provider value={{user: user, setUser: setUser}}>
+            <Header />
+            {/* outlet will be filled by children */}
+            <Outlet />
+            <Footer />
+            </UserContext.Provider>
+        </Provider>
+
+
     );
 };
 
@@ -79,7 +88,7 @@ const appRouter = createBrowserRouter([
         },
         {
             path: "/instamart",
-            element: <Instamart />
+            element: <Suspense fallback={<Shimmer />}><Instamart /></Suspense>
         }
         ]
     }

@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import RestrauntCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import { HEADER } from "../constants";
 import useOnline from "../utils/useOnline";
+/* import UserContext from "../utils/UserContext"; */
 
 const Body = () => 
 {
@@ -14,6 +15,7 @@ const Body = () =>
     const [locationText, setLocationText] = useState("saarbrücken");
     const [btnClicked, setBtnClicked] = useState(0);	
     const [status, setStatus] = useState(false);  
+/*     const {user, setUser} = useContext(UserContext); */
 
     useEffect(() => {
         getLocation();
@@ -76,9 +78,8 @@ const Body = () =>
      return allRestaurants?.length===0 ? 
      <Shimmer/> :
      (
-            <div className="flex flex-col 
-            items-center justify-center bg-slate-600">
-            <div className="p-10 bg-slate-800 rounded-lg m-5 shadow-lg">
+            <div className="flex flex-col sm:justify-center sm:items-center bg-slate-500">
+            <div className="p-10 bg-slate-400 rounded-lg m-5 shadow-lg sm:w-6/12">
                 <input type="text" className="text-lg focus:outline-green-500 p-1 m-1 shadow-lg" placeholder="Search Restaurant.." value={searchText} onChange={(e) => {
                         setSearchText(e.target.value);
                         if(e.target.value.length>0){
@@ -89,13 +90,14 @@ const Body = () =>
                         }                
                     }}>    
                 </input>
-                <input type="text" className="text-lg p-1 m-1 focus:outline-green-500 shadow-md" placeholder="Search via location.." value={locationText} onChange={(e) => setLocationText(e.target.value)}></input>
+                <input type="text" className="text-lg p-1 m-1  focus:outline-green-500 shadow-md" placeholder="Search via location.." value={locationText} onChange={(e) => setLocationText(e.target.value)}></input>
+{/*                 <input type="text" className="text-lg p-1 m-1" value={user?.name} onChange={(e) => setUser({...user,name: e.target.value})}/> */}
                 <button className="p-2 mx-1 bg-green-700 hover:bg-green-800 text-white rounded-md shadow-md" onClick={() => {
                     setBtnClicked(btnClicked + 1);
                     setStatus(true);
                 }}>{status?"loading":"Change location"}</button>
             </div>
-            <div className="w-6/12 shadow-2xl bg-slate-500 rounded-lg my-5">
+            <div className="w-fit shadow-2xl bg-slate-300 rounded-lg my-5 sm:w-6/12">
                 {
                     filteredRestaurants?.length === 0 ? <h1 className="text-2xl p-10 text-white">404 error : No Restaurant found</h1> :  filteredRestaurants?.map((restaurant)=>
                     { 
